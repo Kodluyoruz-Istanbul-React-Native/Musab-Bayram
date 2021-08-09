@@ -1,3 +1,4 @@
+//kullanıcının giriş bilgilerinin kontrolü buradan yapılıyor
 import { Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import firebase from '@firebase/app';
