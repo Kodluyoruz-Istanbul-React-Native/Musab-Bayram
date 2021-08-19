@@ -1,14 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  ScrollView,
-  View,
-  Image,
-  TouchableHighlight,
-  FlatList,
-} from 'react-native';
+import {Text, View, Image, TouchableHighlight, FlatList} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Styles from './Styles';
 
@@ -82,79 +74,47 @@ const Data = [
   },
 ];
 
-const Child = ({uri, username, hidden, color}) => {
+const FluxChild = ({uri, username, color}) => {
   return (
     <View style={Styles.mainView}>
-      <TouchableHighlight style={Styles.profileImgContainer}>
-        <LinearGradient
-          colors={
-            color === null
-              ? ['#bc2a8d', '#e95950', '#fccc63']
-              : ['#fff', '#fff', '#fff']
-          }
-          style={{padding: 2, borderRadius: 50}}>
-          <Image
-            source={{uri: uri}}
-            style={[
-              Styles.StoryImage,
-              color === null ? null : {borderColor: color, borderWidth: 2},
-            ]}
-          />
-        </LinearGradient>
-      </TouchableHighlight>
-
-      {hidden ? null : (
-        <Entypo
-          style={Styles.plusIcon}
-          name="circle-with-plus"
-          size={30}
-          color="#FFF"
-        />
-      )}
-      <Text style={Styles.username}>{username}</Text>
+      <View style={{flexDirection: 'row', marginBottom: 4}}>
+        <TouchableHighlight style={Styles.profileImgContainer}>
+          <LinearGradient
+            colors={
+              color === null
+                ? ['#bc2a8d', '#e95950', '#fccc63']
+                : ['#fff', '#fff', '#fff']
+            }
+            style={{padding: 2, borderRadius: 50}}>
+            <Image
+              source={{uri: uri}}
+              style={[Styles.fluxUserImage, {borderColor: color}]}
+            />
+          </LinearGradient>
+        </TouchableHighlight>
+        <Text style={{alignSelf: 'center'}}>{username}</Text>
+      </View>
+      <Image source={{uri: uri}} style={Styles.fluxPostImage} />
     </View>
   );
 };
 
-export const Story = () => {
-  const getUsers = async () => {
-    const response = await fetch(
-      'https://randomuser.me/api/?seed=${seed}&page=${page}&results=20',
-    );
-
-    const json = await response.json();
-    //console.log('fonksiyonun içindeki data : ', json.results);
-    if (json.results.length > 0) {
-      setData(json.results);
-    }
-  };
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  //console.log('useState= ', data);
+export const Flux = () => {
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <View>
-        <FlatList
-          data={Data}
-          contentContainerStyle={{flexDirection: 'row'}}
-          renderItem={({item, index}) => (
-            <Child
-              key={index}
-              uri={item.uri}
-              username={item.username}
-              hidden={item.hidden}
-              color={item.color}
-            />
-          )}
-        />
-      </View>
-    </ScrollView>
+    <View>
+      <FlatList
+        data={Data}
+        renderItem={({item, index}) => (
+          <FluxChild
+            key={index}
+            uri={item.uri}
+            username={item.username}
+            color={item.color}
+          />
+        )}
+      />
+    </View>
   );
 };
 
-export default Story;
+export default Flux;
