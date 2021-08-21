@@ -1,9 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, Image, TouchableHighlight, FlatList} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TouchableHighlight,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Styles from './Styles';
 
+let liked = 0;
 const Data = [
   {
     uri: 'https://i.picsum.photos/id/669/4869/3456.jpg?hmac=g-4rQWsPdHoLi5g6ahHlvjKubSQzR-D9m7-WtblbmyM',
@@ -73,8 +81,11 @@ const Data = [
     color: null,
   },
 ];
-
 const FluxChild = ({uri, username, color}) => {
+  function onPress() {
+    liked += 1;
+    console.log(liked);
+  }
   return (
     <View style={Styles.mainView}>
       <View style={{flexDirection: 'row', marginBottom: 4}}>
@@ -95,6 +106,13 @@ const FluxChild = ({uri, username, color}) => {
         <Text style={{alignSelf: 'center'}}>{username}</Text>
       </View>
       <Image source={{uri: uri}} style={Styles.fluxPostImage} />
+      <TouchableOpacity onpress={onPress()}>
+        <Ionicons
+          name={liked % 2 === 1 ? 'heart-outline' : 'heart-sharp'}
+          size={35}
+          style={liked % 2 === 1 ? {color: 'black'} : {color: 'red'}}
+        />
+      </TouchableOpacity>
     </View>
   );
 };

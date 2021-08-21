@@ -8,22 +8,21 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {ScrollView} from 'react-native-gesture-handler';
 import {Story} from './Story';
 import {Flux} from './Flux';
+import {Profile} from './Profile';
 import Styles from './Styles';
 
-const Home = () => {
+const HomeScreen = () => {
   return (
     <ImageBackground style={{backgroundColor: 'white', flex: 1}}>
-      <View>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <Story></Story>
-          <Flux></Flux>
-        </ScrollView>
-      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Story></Story>
+        <Flux></Flux>
+      </ScrollView>
     </ImageBackground>
   );
 };
 
-const Search = () => {
+const SearchScreen = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Search!</Text>
@@ -31,7 +30,7 @@ const Search = () => {
   );
 };
 
-const Reels = () => {
+const ReelsScreen = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Reels!</Text>
@@ -39,7 +38,7 @@ const Reels = () => {
   );
 };
 
-const Shopping = () => {
+const ShoppingScreen = () => {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Shopping!</Text>
@@ -47,11 +46,11 @@ const Shopping = () => {
   );
 };
 
-const Profile = () => {
+const ProfileScreen = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Profile!</Text>
-    </View>
+    <ImageBackground style={{backgroundColor: 'white', flex: 1}}>
+      <Profile></Profile>
+    </ImageBackground>
   );
 };
 
@@ -61,15 +60,15 @@ const MyTabs = () => {
   return (
     <Tab.Navigator
       barStyle={{backgroundColor: 'white'}}
-      initialRouteName="Home"
+      initialRouteName="HomeScreen"
       activeColor="#000"
       labelStyle={{fontSize: 12}}
       style={{
         backgroundColor: '#3b3b',
       }}>
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="HomeScreen"
+        component={HomeScreen}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
@@ -78,8 +77,8 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={Search}
+        name="SearchScreen"
+        component={SearchScreen}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
@@ -88,8 +87,8 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Reels"
-        component={Reels}
+        name="ReelsScreen"
+        component={ReelsScreen}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
@@ -98,8 +97,8 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Shopping"
-        component={Shopping}
+        name="ShoppingScreen"
+        component={ShoppingScreen}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
@@ -108,8 +107,8 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
