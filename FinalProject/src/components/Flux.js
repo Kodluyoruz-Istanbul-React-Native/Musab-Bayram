@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Entypo from 'react-native-vector-icons/Entypo';
 import Styles from './Styles';
 
 let liked = 0;
@@ -94,7 +94,7 @@ const FluxChild = ({uri, username, color}) => {
             colors={
               color === null
                 ? ['#bc2a8d', '#e95950', '#fccc63']
-                : ['#fff', '#fff', '#fff']
+                : ['#000', '#000', '#000']
             }
             style={{padding: 2, borderRadius: 50}}>
             <Image
@@ -107,10 +107,10 @@ const FluxChild = ({uri, username, color}) => {
       </View>
       <Image source={{uri: uri}} style={Styles.fluxPostImage} />
       <TouchableOpacity onpress={onPress()}>
-        <Ionicons
-          name={liked % 2 === 1 ? 'heart-outline' : 'heart-sharp'}
+        <Entypo
+          name={liked % 2 === 1 ? 'heart-outlined' : 'heart'}
           size={35}
-          style={liked % 2 === 1 ? {color: 'black'} : {color: 'red'}}
+          style={liked % 2 === 1 ? {color: '#fff'} : {color: 'red'}}
         />
       </TouchableOpacity>
     </View>

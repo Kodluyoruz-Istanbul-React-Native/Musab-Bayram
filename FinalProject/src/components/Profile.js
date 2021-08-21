@@ -8,8 +8,10 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Story from './Story';
+import {TabViewProfile} from './TabViewProfile';
 import Styles from './Styles';
 
 const Data = [
@@ -148,7 +150,8 @@ export const Profile = () => {
             height: 100,
             borderRadius: 50,
             marginTop: 15,
-            marginLeft: 15,
+            marginBottom: 10,
+            marginLeft: 10,
           }}
         />
         <View
@@ -158,20 +161,71 @@ export const Profile = () => {
             marginLeft: 10,
           }}>
           <View style={{margin: 20, alignItems: 'center'}}>
-            <Text style={{fontSize: 17}}>15</Text>
-            <Text style={{fontSize: 17}}>Gönderi</Text>
+            <Text style={{fontSize: 17, color: '#fff'}}>15</Text>
+            <Text style={{fontSize: 17, color: '#fff'}}>Gönderi</Text>
           </View>
           <View style={{margin: 20, alignItems: 'center'}}>
-            <Text style={{fontSize: 17}}>1550</Text>
-            <Text style={{fontSize: 17}}>Takipçi</Text>
+            <Text style={{fontSize: 17, color: '#fff'}}>1550</Text>
+            <Text style={{fontSize: 17, color: '#fff'}}>Takipçi</Text>
           </View>
           <View style={{margin: 20, alignItems: 'center'}}>
-            <Text style={{fontSize: 17}}>152</Text>
-            <Text style={{fontSize: 17}}>Takip</Text>
+            <Text style={{fontSize: 17, color: '#fff'}}>152</Text>
+            <Text style={{fontSize: 17, color: '#fff'}}>Takip</Text>
           </View>
         </View>
       </View>
-
+      <Text
+        style={{
+          fontSize: 16,
+          marginLeft: 10,
+          fontWeight: 'bold',
+          color: '#fff',
+        }}>
+        Musab Bahadır
+      </Text>
+      <Text style={{fontSize: 16, marginLeft: 10, color: '#fff'}}>
+        Paü-Bilgisayar / Bursa
+      </Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          margin: 10,
+        }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: 'bold',
+            borderWidth: 1,
+            borderRadius: 4,
+            borderColor: '#fff',
+            width: '89%',
+            height: '110%',
+            textAlign: 'center',
+            textAlignVertical: 'center',
+            marginRight: 8,
+            color: '#fff',
+          }}>
+          Profili Düzenle
+        </Text>
+        <EvilIcons
+          style={{
+            borderWidth: 1,
+            borderRadius: 4,
+            borderColor: '#fff',
+            paddingLeft: 3,
+            paddingRight: 1,
+            paddingTop: 5,
+            height: '110%',
+          }}
+          name="chevron-down"
+          size={30}
+          color="#fff"
+        />
+      </View>
+      <Story></Story>
+      <View style={{flex: 1, height: 500}}>
+        <TabViewProfile></TabViewProfile>
+      </View>
       {/* <FlatList
           data={Data}
           contentContainerStyle={{flexDirection: 'row'}}

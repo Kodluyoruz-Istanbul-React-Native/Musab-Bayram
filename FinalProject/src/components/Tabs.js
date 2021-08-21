@@ -13,7 +13,7 @@ import Styles from './Styles';
 
 const HomeScreen = () => {
   return (
-    <ImageBackground style={{backgroundColor: 'white', flex: 1}}>
+    <ImageBackground style={{backgroundColor: '#000', flex: 1}}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Story></Story>
         <Flux></Flux>
@@ -48,7 +48,7 @@ const ShoppingScreen = () => {
 
 const ProfileScreen = () => {
   return (
-    <ImageBackground style={{backgroundColor: 'white', flex: 1}}>
+    <ImageBackground style={{backgroundColor: '#000', flex: 1}}>
       <Profile></Profile>
     </ImageBackground>
   );
@@ -59,13 +59,14 @@ const Tab = createMaterialBottomTabNavigator();
 const MyTabs = () => {
   return (
     <Tab.Navigator
-      barStyle={{backgroundColor: 'white'}}
+      barStyle={{
+        backgroundColor: '#000',
+        borderTopColor: '#111',
+        borderWidth: 1,
+      }}
       initialRouteName="HomeScreen"
-      activeColor="#000"
-      labelStyle={{fontSize: 12}}
-      style={{
-        backgroundColor: '#3b3b',
-      }}>
+      activeColor="#fff"
+      labelStyle={{fontSize: 12}}>
       <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}

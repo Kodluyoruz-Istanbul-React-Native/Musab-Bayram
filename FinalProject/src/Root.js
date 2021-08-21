@@ -9,8 +9,8 @@ export default class Root extends Component {
     return (
       <Router>
         <Stack key="Root">
-          <Scene key="Login" component={Login} hideNavBar initial />
-          <Scene key="Form" component={Form} hideNavBar />
+          <Scene key="Login" component={Login} hideNavBar />
+          <Scene key="Form" component={Form} hideNavBar initial />
         </Stack>
       </Router>
     );
