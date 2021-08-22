@@ -93,7 +93,14 @@ const MyTabs = () => {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
-            <Entypo name="folder-video" color={color} size={26} />
+            <Image
+              style={{
+                width: 35,
+                height: 35,
+                tintColor: color,
+                marginTop: -5,
+              }}
+              source={require('../img/realsIcon.png')}></Image>
           ),
         }}
       />

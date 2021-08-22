@@ -12,7 +12,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Styles from './Styles';
 
 let liked = 0;
-const Data = [
+export const Data = [
   {
     uri: 'https://i.picsum.photos/id/669/4869/3456.jpg?hmac=g-4rQWsPdHoLi5g6ahHlvjKubSQzR-D9m7-WtblbmyM',
     username: '  Musab',

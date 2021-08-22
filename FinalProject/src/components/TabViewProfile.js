@@ -1,19 +1,51 @@
 import * as React from 'react';
-import {View, StyleSheet, Dimensions} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Image,
+  TouchableHighlight,
+  TouchableOpacity,
+  FlatList,
+  Text,
+} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Entypo from 'react-native-vector-icons/Entypo';
+import {ScrollView} from 'react-native-gesture-handler';
+import {Data} from './Flux';
+import Styles from './Styles';
+
+const GalleryChild = ({uri, username, color}) => {
+  return (
+    <View style={{marginBottom: 4}}>
+      <Image
+        source={{uri: uri}}
+        style={{width: 135, height: 135, marginLeft: 2}}
+      />
+    </View>
+  );
+};
 
 const Gallery = () => (
-  <View style={[styles.scene, {backgroundColor: '#ff0000'}]}></View>
+  <View style={[styles.scene, {backgroundColor: '#000'}]}>
+    <FlatList
+      data={Data}
+      contentContainerStyle={{flexDirection: 'row'}}
+      renderItem={({item, index}) => (
+        <GalleryChild
+          key={index}
+          uri={item.uri}
+          username={item.username}
+          color={item.color}
+        />
+      )}
+    />
+  </View>
 );
 
-const Reals = () => (
-  <View style={[styles.scene, {backgroundColor: '#00ff00'}]} />
-);
-const Tagged = () => (
-  <View style={[styles.scene, {backgroundColor: '#0000ff'}]} />
-);
+const Reals = () => <View style={[styles.scene, {backgroundColor: '#000'}]} />;
+const Tagged = () => <View style={[styles.scene, {backgroundColor: '#000'}]} />;
 
 const initialLayout = {width: Dimensions.get('window').width};
 
@@ -24,14 +56,27 @@ const renderScene = SceneMap({
 });
 const getTabBarIcon = props => {
   const {route} = props;
+  console.log('Data', Data);
   if (route.key === 'Gallery') {
     return (
       <MaterialIcons name={'grid-on'} size={35} style={{color: 'white'}} />
     );
   } else if (route.key === 'Reals') {
-    return <Entypo name="folder-video" style={{color: 'white'}} size={26} />;
+    return (
+      <Image
+        style={{
+          width: 35,
+          height: 38,
+          tintColor: '#fff',
+        }}
+        source={require('../img/realsIcon.png')}></Image>
+    );
   } else {
-    return <Entypo name="folder-video" style={{color: 'white'}} size={26} />;
+    return (
+      <Image
+        style={{width: 35, height: 38, tintColor: '#fff'}}
+        source={require('../img/userTagIcon.png')}></Image>
+    );
   }
 };
 export const TabViewProfile = () => {
@@ -48,13 +93,14 @@ export const TabViewProfile = () => {
       renderScene={renderScene}
       onIndexChange={setIndex}
       initialLayout={initialLayout}
-      style={{backgroundColor: 'white'}}
-      backgroundColor="#fff"
-      borderColor="#fff"
+      backgroundColor={'#fff'}
       renderTabBar={props => (
         <TabBar
           {...props}
-          indicatorStyle={{backgroundColor: 'white'}}
+          indicatorStyle={{
+            backgroundColor: '#fff',
+            paddingBottom: 2,
+          }}
           renderIcon={props => getTabBarIcon(props)}
           tabStyle={styles.bubble}
           labelStyle={styles.noLabel}
