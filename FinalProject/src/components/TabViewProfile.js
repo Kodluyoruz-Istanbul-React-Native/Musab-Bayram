@@ -13,10 +13,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {ScrollView} from 'react-native-gesture-handler';
-import {Data} from './Flux';
+import {Data} from './Post';
 import Styles from './Styles';
 
+let screenIndex;
+let photoCount = 0;
 const GalleryChild = ({uri, username, color}) => {
+  photoCount++;
   return (
     <View style={{marginBottom: 4}}>
       <Image
@@ -56,25 +59,37 @@ const renderScene = SceneMap({
 });
 const getTabBarIcon = props => {
   const {route} = props;
-  console.log('Data', Data);
+  //console.log('Data', Data);
   if (route.key === 'Gallery') {
     return (
-      <MaterialIcons name={'grid-on'} size={35} style={{color: 'white'}} />
+      <MaterialIcons
+        name={'grid-on'}
+        size={35}
+        style={screenIndex === 0 ? {color: '#fff'} : {color: '#606060'}}
+      />
     );
   } else if (route.key === 'Reals') {
     return (
       <Image
-        style={{
-          width: 35,
-          height: 38,
-          tintColor: '#fff',
-        }}
+        style={[
+          {
+            width: 35,
+            height: 38,
+          },
+          screenIndex === 1 ? {tintColor: '#fff'} : {tintColor: '#606060'},
+        ]}
         source={require('../img/realsIcon.png')}></Image>
     );
   } else {
     return (
       <Image
-        style={{width: 35, height: 38, tintColor: '#fff'}}
+        style={[
+          {
+            width: 35,
+            height: 38,
+          },
+          screenIndex === 2 ? {tintColor: '#fff'} : {tintColor: '#606060'},
+        ]}
         source={require('../img/userTagIcon.png')}></Image>
     );
   }
@@ -86,28 +101,30 @@ export const TabViewProfile = () => {
     {key: 'Reals', title: 'Reals'},
     {key: 'Tagged', title: 'Tagged'},
   ]);
-
   return (
-    <TabView
-      navigationState={{index, routes}}
-      renderScene={renderScene}
-      onIndexChange={setIndex}
-      initialLayout={initialLayout}
-      backgroundColor={'#fff'}
-      renderTabBar={props => (
-        <TabBar
-          {...props}
-          indicatorStyle={{
-            backgroundColor: '#fff',
-            paddingBottom: 2,
-          }}
-          renderIcon={props => getTabBarIcon(props)}
-          tabStyle={styles.bubble}
-          labelStyle={styles.noLabel}
-        />
-      )}
-      tabBarPosition={'top'}
-    />
+    (screenIndex = index),
+    (
+      <TabView
+        navigationState={{index, routes}}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={initialLayout}
+        backgroundColor={'#fff'}
+        renderTabBar={props => (
+          <TabBar
+            {...props}
+            indicatorStyle={{
+              backgroundColor: '#fff',
+              paddingBottom: 2,
+            }}
+            renderIcon={props => getTabBarIcon(props)}
+            tabStyle={styles.bubble}
+            labelStyle={styles.noLabel}
+          />
+        )}
+        tabBarPosition={'top'}
+      />
+    )
   );
 };
 

@@ -27,14 +27,14 @@ export default StyleSheet.create({
     marginBottom: 5,
     marginTop: 5,
   },
-  fluxUserImage: {
+  postUserImage: {
     width: 40,
     height: 40,
     borderRadius: 20,
     borderRadius: 80 / 2,
     borderWidth: 2,
   },
-  fluxPostImage: {
+  postImage: {
     width: width,
     height: width * 1.2,
     borderRadius: 4,

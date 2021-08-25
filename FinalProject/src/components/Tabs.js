@@ -7,7 +7,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Story} from './Story';
-import {Flux} from './Flux';
+import {Post} from './Post';
 import {Profile} from './Profile';
 import Styles from './Styles';
 
@@ -16,7 +16,7 @@ const HomeScreen = () => {
     <ImageBackground style={{backgroundColor: '#000', flex: 1}}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Story></Story>
-        <Flux></Flux>
+        <Post></Post>
       </ScrollView>
     </ImageBackground>
   );
@@ -85,6 +85,14 @@ const MyTabs = () => {
           tabBarIcon: ({color}) => (
             <Fontisto name="search" color={color} size={26} />
           ),
+
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
       <Tab.Screen
@@ -134,11 +142,7 @@ const MyTabs = () => {
 };
 
 export const Tabs = () => {
-  return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
-  );
+  return <MyTabs />;
 };
 
 export default Tabs;

@@ -123,9 +123,7 @@ export const Profile = () => {
     const response = await fetch(
       'https://randomuser.me/api/?seed=${seed}&page=${page}&results=20',
     );
-
     const json = await response.json();
-    //console.log('fonksiyonun içindeki data : ', json.results);
     if (json.results.length > 0) {
       setData(json.results);
     }
@@ -137,7 +135,6 @@ export const Profile = () => {
     getUsers();
   }, []);
 
-  //console.log('useState= ', data);
   return (
     <ScrollView showsHorizontalScrollIndicator={false}>
       <View style={{flexDirection: 'row'}}>

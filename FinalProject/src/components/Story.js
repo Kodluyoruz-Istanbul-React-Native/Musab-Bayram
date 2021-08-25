@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Styles from './Styles';
-import {Data} from './Flux';
+import {Data} from './Post';
 
 const Child = ({uri, username, hidden, color}) => {
   return (
