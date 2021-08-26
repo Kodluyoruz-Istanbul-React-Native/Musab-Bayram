@@ -19,7 +19,9 @@ const Child = ({uri, username, hidden, color}) => {
       <TouchableHighlight style={Styles.profileImgContainer}>
         <LinearGradient
           colors={
-            color === null ? ['#fff', '#fff', '#fff'] : ['#000', '#000', '#000']
+            color === null
+              ? ['#bc2a8d', '#e95950', '#fccc63']
+              : ['#000', '#000', '#000']
           }
           style={{padding: 2, borderRadius: 50, marginLeft: 5, marginRight: 5}}>
           <Image

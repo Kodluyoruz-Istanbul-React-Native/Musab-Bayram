@@ -13,12 +13,12 @@ import Styles from './Styles';
 
 const HomeScreen = () => {
   return (
-    <ImageBackground style={{backgroundColor: '#000', flex: 1}}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Story></Story>
-        <Post></Post>
-      </ScrollView>
-    </ImageBackground>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={Styles.tabsHomeScreen}>
+      <Story></Story>
+      <Post></Post>
+    </ScrollView>
   );
 };
 
@@ -48,7 +48,7 @@ const ShoppingScreen = () => {
 
 const ProfileScreen = () => {
   return (
-    <ImageBackground style={{backgroundColor: '#000', flex: 1}}>
+    <ImageBackground style={{backgroundColor: '#000'}}>
       <Profile></Profile>
     </ImageBackground>
   );
@@ -59,11 +59,7 @@ const Tab = createMaterialBottomTabNavigator();
 const MyTabs = () => {
   return (
     <Tab.Navigator
-      barStyle={{
-        backgroundColor: '#000',
-        borderTopColor: '#111',
-        borderWidth: 1,
-      }}
+      barStyle={Styles.barStyle}
       initialRouteName="HomeScreen"
       activeColor="#fff"
       labelStyle={{fontSize: 12}}>
@@ -85,7 +81,6 @@ const MyTabs = () => {
           tabBarIcon: ({color}) => (
             <Fontisto name="search" color={color} size={26} />
           ),
-
           headerStyle: {
             backgroundColor: '#f4511e',
           },
@@ -102,12 +97,7 @@ const MyTabs = () => {
           tabBarLabel: '',
           tabBarIcon: ({color}) => (
             <Image
-              style={{
-                width: 35,
-                height: 35,
-                tintColor: color,
-                marginTop: -5,
-              }}
+              style={[Styles.reelsIcon, {tintColor: color}]}
               source={require('../img/realsIcon.png')}></Image>
           ),
         }}
@@ -132,7 +122,12 @@ const MyTabs = () => {
               source={{
                 uri: 'https://i.picsum.photos/id/669/4869/3456.jpg?hmac=g-4rQWsPdHoLi5g6ahHlvjKubSQzR-D9m7-WtblbmyM',
               }}
-              style={Styles.tabsProfileIcon}
+              style={[
+                Styles.tabsProfileIcon,
+                color === '#fff'
+                  ? {borderColor: '#fff'}
+                  : {borderColor: '#000'},
+              ]}
             />
           ),
         }}

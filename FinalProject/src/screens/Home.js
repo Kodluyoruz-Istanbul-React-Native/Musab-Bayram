@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {Tabs} from '../components/Tabs';
+import Styles from '../components/Styles';
 
 const CameraScreen = () => {
   return (
@@ -15,10 +16,8 @@ const CameraScreen = () => {
 
 const HomeScreen = () => {
   return (
-    <ImageBackground style={{backgroundColor: 'white', flex: 1}}>
-      <View style={{flex: 1}}>
-        <Tabs></Tabs>
-      </View>
+    <ImageBackground style={{flex: 1}}>
+      <Tabs></Tabs>
     </ImageBackground>
   );
 };

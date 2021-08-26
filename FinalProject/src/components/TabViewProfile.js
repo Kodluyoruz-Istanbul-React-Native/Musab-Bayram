@@ -1,40 +1,27 @@
 import * as React from 'react';
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  Image,
-  TouchableHighlight,
-  TouchableOpacity,
-  FlatList,
-  Text,
-} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {View, Image, TouchableOpacity, FlatList} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {ScrollView} from 'react-native-gesture-handler';
 import {Data} from './Post';
 import Styles from './Styles';
 
 let screenIndex;
 let photoCount = 0;
-const GalleryChild = ({uri, username, color}) => {
+const GalleryChild = ({uri}) => {
   photoCount++;
   return (
-    <View style={{marginBottom: 4}}>
-      <Image
-        source={{uri: uri}}
-        style={{width: 135, height: 135, marginLeft: 2}}
-      />
-    </View>
+    <TouchableOpacity style={{marginBottom: 2}}>
+      <Image source={{uri: uri}} style={Styles.galleryChild} />
+    </TouchableOpacity>
   );
 };
 
 const Gallery = () => (
-  <View style={[styles.scene, {backgroundColor: '#000'}]}>
+  <View style={Styles.scene}>
     <FlatList
       data={Data}
-      contentContainerStyle={{flexDirection: 'row'}}
+      numColumns={3}
+      contentContainerStyle={{marginBottom: 77}}
       renderItem={({item, index}) => (
         <GalleryChild
           key={index}
@@ -47,10 +34,8 @@ const Gallery = () => (
   </View>
 );
 
-const Reals = () => <View style={[styles.scene, {backgroundColor: '#000'}]} />;
-const Tagged = () => <View style={[styles.scene, {backgroundColor: '#000'}]} />;
-
-const initialLayout = {width: Dimensions.get('window').width};
+const Reals = () => <View style={Styles.scene} />;
+const Tagged = () => <View style={Styles.scene} />;
 
 const renderScene = SceneMap({
   Gallery: Gallery,
@@ -72,10 +57,7 @@ const getTabBarIcon = props => {
     return (
       <Image
         style={[
-          {
-            width: 35,
-            height: 38,
-          },
+          Styles.iconImage,
           screenIndex === 1 ? {tintColor: '#fff'} : {tintColor: '#606060'},
         ]}
         source={require('../img/realsIcon.png')}></Image>
@@ -84,10 +66,7 @@ const getTabBarIcon = props => {
     return (
       <Image
         style={[
-          {
-            width: 35,
-            height: 38,
-          },
+          Styles.iconImage,
           screenIndex === 2 ? {tintColor: '#fff'} : {tintColor: '#606060'},
         ]}
         source={require('../img/userTagIcon.png')}></Image>
@@ -108,18 +87,15 @@ export const TabViewProfile = () => {
         navigationState={{index, routes}}
         renderScene={renderScene}
         onIndexChange={setIndex}
-        initialLayout={initialLayout}
-        backgroundColor={'#fff'}
+        initialLayout={Styles.initialLayout}
+        //backgroundColor={'#fff'}
         renderTabBar={props => (
           <TabBar
             {...props}
-            indicatorStyle={{
-              backgroundColor: '#fff',
-              paddingBottom: 2,
-            }}
+            //indicatorStyle={{}}
             renderIcon={props => getTabBarIcon(props)}
-            tabStyle={styles.bubble}
-            labelStyle={styles.noLabel}
+            tabStyle={Styles.tabStyle}
+            labelStyle={{display: 'none'}}
           />
         )}
         tabBarPosition={'top'}
@@ -127,20 +103,5 @@ export const TabViewProfile = () => {
     )
   );
 };
-
-const styles = StyleSheet.create({
-  scene: {
-    flex: 1,
-  },
-  noLabel: {
-    display: 'none',
-    height: 25,
-  },
-  bubble: {
-    backgroundColor: '#000',
-    paddingHorizontal: 0,
-    paddingVertical: 0,
-  },
-});
 
 export default TabViewProfile;

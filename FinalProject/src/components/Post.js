@@ -80,6 +80,36 @@ export const Data = [
     hidden: true,
     color: null,
   },
+  {
+    uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
+    username: '  Banu',
+    hidden: true,
+    color: null,
+  },
+  {
+    uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
+    username: '  Banu',
+    hidden: true,
+    color: null,
+  },
+  {
+    uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
+    username: '  Banu',
+    hidden: true,
+    color: null,
+  },
+  {
+    uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
+    username: '  Banu',
+    hidden: true,
+    color: null,
+  },
+  {
+    uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
+    username: '  Banu',
+    hidden: true,
+    color: null,
+  },
 ];
 const PostChild = ({uri, username, color}) => {
   function onPress() {
@@ -88,7 +118,7 @@ const PostChild = ({uri, username, color}) => {
   }
   return (
     <View style={Styles.mainView}>
-      <View style={{flexDirection: 'row', marginBottom: 4}}>
+      <View style={Styles.postInfoView}>
         <TouchableHighlight style={Styles.profileImgContainer}>
           <LinearGradient
             colors={
@@ -96,7 +126,7 @@ const PostChild = ({uri, username, color}) => {
                 ? ['#bc2a8d', '#e95950', '#fccc63']
                 : ['#000', '#000', '#000']
             }
-            style={{padding: 2, borderRadius: 50}}>
+            style={Styles.postInfoStory}>
             <Image
               source={{uri: uri}}
               style={[Styles.postUserImage, {borderColor: color}]}
