@@ -34,22 +34,24 @@ export const Profile = () => {
             color="#fff"
           />
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Entypo
-            name="plus"
-            size={20}
-            color="#fff"
-            style={Styles.profileHeaderPlus}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <SimpleLineIcons
-            name="menu"
-            size={24}
-            color="#fff"
-            style={Styles.profileHeaderMenu}
-          />
-        </TouchableOpacity>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity>
+            <Entypo
+              name="plus"
+              size={20}
+              color="#fff"
+              style={Styles.profileHeaderPlus}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <SimpleLineIcons
+              name="menu"
+              size={24}
+              color="#fff"
+              style={Styles.profileHeaderMenu}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
       <ScrollView showsHorizontalScrollIndicator={false}>
         <View style={{flexDirection: 'row'}}>

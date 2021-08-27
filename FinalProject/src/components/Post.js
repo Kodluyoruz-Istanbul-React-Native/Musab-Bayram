@@ -8,105 +8,105 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Entypo from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import Styles from './Styles';
 
 let liked = 0;
 export const Data = [
   {
     uri: 'https://i.picsum.photos/id/669/4869/3456.jpg?hmac=g-4rQWsPdHoLi5g6ahHlvjKubSQzR-D9m7-WtblbmyM',
-    username: '  Musab',
+    username: 'Musab',
     hidden: false,
     color: '#fff',
   },
   {
     uri: 'https://i.picsum.photos/id/602/2509/1673.jpg?hmac=wvxJs5BbpVV8SJIN-vmyhWXuWlIHloNPBUkgwKVSkP0',
-    username: '  Engin',
+    username: 'Engin',
     hidden: true,
     color: '#559922',
   },
 
   {
     uri: 'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
-    username: '  Merve',
+    username: 'Şule',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY',
-    username: '  Taha',
+    username: 'Taha',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
-    username: '  Merve',
+    username: 'Merve',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY',
-    username: '  Taha',
+    username: 'Taha',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1011/5472/3648.jpg?hmac=Koo9845x2akkVzVFX3xxAc9BCkeGYA9VRVfLE4f0Zzk',
-    username: '  Merve',
+    username: 'Merve',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY',
-    username: '  Taha',
+    username: 'Taha',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
   {
     uri: 'https://i.picsum.photos/id/1027/2848/4272.jpg?hmac=EAR-f6uEqI1iZJjB6-NzoZTnmaX0oI0th3z8Y78UpKM',
-    username: '  Banu',
+    username: 'Banu',
     hidden: true,
     color: null,
   },
@@ -145,10 +145,13 @@ const PostChild = ({uri, username, color}) => {
       </View>
       <Image source={{uri: uri}} style={Styles.postImage} />
       <TouchableOpacity onpress={onPress()}>
-        <Entypo
-          name={liked % 2 === 1 ? 'heart-outlined' : 'heart'}
-          size={35}
-          style={liked % 2 === 1 ? {color: '#fff'} : {color: 'red'}}
+        <AntDesign
+          name={liked % 2 === 1 ? 'hearto' : 'heart'}
+          size={26}
+          style={[
+            liked % 2 === 1 ? {color: '#fff'} : {color: 'red'},
+            {margin: 4},
+          ]}
         />
       </TouchableOpacity>
     </View>

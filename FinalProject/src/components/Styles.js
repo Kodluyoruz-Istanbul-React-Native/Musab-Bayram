@@ -54,9 +54,11 @@ export default StyleSheet.create({
   profileHeaderView: {
     flexDirection: 'row',
     marginTop: 4,
-    paddingBottom: 4,
+    paddingBottom: 8,
     borderBottomWidth: 1,
     borderColor: '#252525',
+    justifyContent: 'space-between',
+    paddingTop: 4,
   },
   profileHeaderLockIcon: {
     alignSelf: 'center',
@@ -74,11 +76,11 @@ export default StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     margin: 2,
-    marginLeft: 140,
   },
   profileHeaderMenu: {
     marginLeft: 24,
     marginTop: 2,
+    marginRight: 15,
   },
   profileImage: {
     width: 100,
@@ -161,6 +163,22 @@ export default StyleSheet.create({
   },
 
   //----------------------------------------Tabs.js Styles----------------------------------------------//
+  headerInstagramText: {
+    width: 115,
+    height: 35,
+    tintColor: '#fff',
+    marginLeft: 10,
+  },
+  headerHeartIcon: {
+    color: '#fff',
+    marginRight: 20,
+    marginLeft: 20,
+  },
+  headerCommentIcon: {
+    width: 28,
+    height: 28,
+    marginRight: 10,
+  },
   tabsProfileIcon: {
     width: 32,
     height: 32,
@@ -180,5 +198,26 @@ export default StyleSheet.create({
     width: 35,
     height: 35,
     marginTop: -5,
+  },
+  //----------------------------------------Home.js Styles----------------------------------------------//
+  homeHeaderView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 4,
+  },
+  videoCameraIcon: {
+    width: 32,
+    height: 32,
+    tintColor: '#fff',
+  },
+  editIcon: {
+    width: 24,
+    height: 24,
+    tintColor: '#fff',
+    marginRight: 14,
+    marginLeft: 24,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
+    borderTopLeftRadius: 4,
   },
 });
