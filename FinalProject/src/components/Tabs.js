@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Searchbar} from 'react-native-paper';
-import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
