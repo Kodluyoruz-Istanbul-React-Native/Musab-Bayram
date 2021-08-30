@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
+import LinearGradient from 'react-native-linear-gradient';
 import {ScrollView} from 'react-native-gesture-handler';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import {useFocusEffect} from '@react-navigation/native';
 import {Actions} from 'react-native-router-flux';
 import {NavigationContainer} from '@react-navigation/native';
@@ -14,13 +15,40 @@ import Styles from './Styles';
 
 let screenIndex;
 let photoCount = 0;
-const DmChild = ({uri}) => {
+const DmChild = ({uri, username, color}) => {
   photoCount++;
   return (
-    <TouchableOpacity style={{marginBottom: 2}}>
-      <Image
-        source={{uri: uri}}
-        style={{width: 40, height: 40, borderRadius: 20}}
+    <TouchableOpacity
+      style={{
+        flexDirection: 'row',
+        margin: 8,
+        justifyContent: 'space-between',
+      }}>
+      <View
+        style={{
+          flexDirection: 'row',
+        }}>
+        <LinearGradient
+          colors={
+            color === null
+              ? ['#bc2a8d', '#e95950', '#fccc63']
+              : ['#000', '#000', '#000']
+          }
+          style={Styles.postInfoStory}>
+          <Image
+            source={{uri: uri}}
+            style={{width: 50, height: 50, borderRadius: 25}}
+          />
+        </LinearGradient>
+        <View style={{justifyContent: 'center', marginLeft: 5}}>
+          <Text style={{color: '#fff'}}>{username}</Text>
+          <Text style={{color: '#999'}}>Bir mesajını beğendi</Text>
+        </View>
+      </View>
+      <Feather
+        name="camera"
+        size={26}
+        style={{color: '#999', alignSelf: 'center', marginRight: 6}}
       />
     </TouchableOpacity>
   );
@@ -30,7 +58,7 @@ const DirectMessage = () => (
   <View style={Styles.scene}>
     <FlatList
       data={Data}
-      numColumns={3}
+      //numColumns={3}
       contentContainerStyle={{marginBottom: 77}}
       renderItem={({item, index}) => (
         <DmChild
@@ -78,6 +106,7 @@ const TabViewProfile = () => {
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={Styles.initialLayout}
+        swipeEnabled={false}
         //backgroundColor={'#fff'}
         renderTabBar={props => (
           <TabBar
