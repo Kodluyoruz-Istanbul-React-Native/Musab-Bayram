@@ -53,7 +53,8 @@ export default StyleSheet.create({
   //-----------------------------Profile.js Styles----------------------------------//
   profileHeaderView: {
     flexDirection: 'row',
-    marginTop: 4,
+    backgroundColor: '#000',
+    paddingTop: 4,
     paddingBottom: 8,
     borderBottomWidth: 1,
     borderColor: '#252525',

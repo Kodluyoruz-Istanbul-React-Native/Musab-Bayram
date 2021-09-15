@@ -22,35 +22,6 @@ import Styles from './Styles';
 const HomeScreen = () => {
   return (
     <View style={Styles.tabsHomeScreen}>
-      <View style={Styles.profileHeaderView}>
-        <TouchableOpacity>
-          <Image
-            style={Styles.headerInstagramText}
-            source={require('../img/instagramText.png')}></Image>
-        </TouchableOpacity>
-        <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity>
-            <Entypo
-              name="plus"
-              size={20}
-              color="#fff"
-              style={Styles.profileHeaderPlus}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <AntDesign
-              name={'hearto'}
-              size={27}
-              style={Styles.headerHeartIcon}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              style={Styles.headerCommentIcon}
-              source={require('../img/commentIcon.png')}></Image>
-          </TouchableOpacity>
-        </View>
-      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={Styles.tabsHomeScreen}>
@@ -89,16 +60,28 @@ const DiscoverScreen = () => {
 
 const ReelsScreen = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Reels!</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#000',
+      }}>
+      <Text style={{color: 'white'}}>Reels!</Text>
     </View>
   );
 };
 
 const ShoppingScreen = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Shopping!</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        alignItems: 'center',
+      }}>
+      <Text style={{color: 'white'}}>Shopping!</Text>
     </View>
   );
 };

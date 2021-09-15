@@ -8,9 +8,9 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Styles from './Styles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Child = ({uri, username, hidden, color}) => {
   return (
@@ -24,12 +24,7 @@ const Child = ({uri, username, hidden, color}) => {
           }
           style={{padding: 2, borderRadius: 50, marginLeft: 5, marginRight: 5}}>
           <Image
-            source={{
-              uri:
-                hidden !== 0
-                  ? uri
-                  : 'https://i.picsum.photos/id/669/4869/3456.jpg?hmac=g-4rQWsPdHoLi5g6ahHlvjKubSQzR-D9m7-WtblbmyM',
-            }}
+            source={{uri: uri}}
             style={[
               Styles.StoryImage,
               color === null ? null : {borderColor: color, borderWidth: 2},
@@ -37,24 +32,16 @@ const Child = ({uri, username, hidden, color}) => {
           />
         </LinearGradient>
       </TouchableHighlight>
-
-      {hidden !== 0 ? null : (
-        <Entypo
-          style={Styles.plusIcon}
-          name="circle-with-plus"
-          size={30}
-          color="#000"
-        />
-      )}
-      <Text style={Styles.username}>{hidden !== 0 ? username : 'Musab'}</Text>
+      <Text style={Styles.username}>{username}</Text>
     </View>
   );
 };
 
-export const Story = () => {
+export const PinnedStories = () => {
+  const [count, setCount] = useState(3);
   const getUsers = async () => {
     const response = await fetch(
-      'https://randomuser.me/api/?seed=${seed}&page=${page}&results=10',
+      'https://randomuser.me/api/?seed=${seed}&page=${page}&results=' + count,
     );
 
     const json = await response.json();
@@ -68,11 +55,11 @@ export const Story = () => {
 
   useEffect(() => {
     getUsers();
-  }, []);
-
+  }, [count]);
+  console.log(count);
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      <View>
+      <View style={{flexDirection: 'row'}}>
         <FlatList
           data={data}
           contentContainerStyle={{flexDirection: 'row'}}
@@ -86,9 +73,21 @@ export const Story = () => {
             />
           )}
         />
+        <TouchableOpacity
+          onPress={() => setCount(count + 1)}
+          style={{
+            marginTop: 7,
+            marginLeft: 5,
+            padding: 16,
+            borderWidth: 1,
+            borderColor: '#fff',
+            borderRadius: 40,
+          }}>
+          <Entypo name="plus" size={45} color="#fff" style={{}} />
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
 };
 
-export default Story;
+export default PinnedStories;

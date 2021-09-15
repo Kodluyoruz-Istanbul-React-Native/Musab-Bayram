@@ -18,15 +18,55 @@ import Styles from '../components/Styles';
 
 const CameraScreen = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Camera!</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#000',
+      }}>
+      <Text style={{color: 'white'}}>Camera!</Text>
     </View>
   );
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <ImageBackground style={{flex: 1}}>
+      <View style={Styles.profileHeaderView}>
+        <TouchableOpacity>
+          <Image
+            style={Styles.headerInstagramText}
+            source={require('../img/instagramText.png')}></Image>
+        </TouchableOpacity>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity>
+            <Entypo
+              name="plus"
+              size={20}
+              color="#fff"
+              style={Styles.profileHeaderPlus}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <AntDesign
+              name={'hearto'}
+              size={27}
+              style={Styles.headerHeartIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Communication', {
+                screen: 'CommunicationScreen',
+              })
+            }>
+            <Image
+              style={Styles.headerCommentIcon}
+              source={require('../img/commentIcon.png')}></Image>
+          </TouchableOpacity>
+        </View>
+      </View>
       <Tabs></Tabs>
     </ImageBackground>
   );

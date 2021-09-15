@@ -1,17 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  ScrollView,
-  View,
-  Image,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import {Text, ScrollView, View, Image, TouchableOpacity} from 'react-native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import Story from './Story';
+import PinnedStories from './PinnedStories';
 import {TabViewProfile} from './TabViewProfile';
 import Styles from './Styles';
 
@@ -95,7 +88,7 @@ export const Profile = () => {
             />
           </TouchableOpacity>
         </View>
-        <Story></Story>
+        <PinnedStories></PinnedStories>
         <View style={{flex: 1}}>
           <TabViewProfile></TabViewProfile>
         </View>

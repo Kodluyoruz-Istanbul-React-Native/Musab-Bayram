@@ -72,7 +72,52 @@ const DirectMessage = () => (
   </View>
 );
 
-const Rooms = () => <View style={Styles.scene} />;
+const Rooms = () => (
+  <View style={Styles.scene}>
+    <Image
+      source={require('../img/rooms.png')}
+      style={{
+        alignSelf: 'center',
+        marginTop: 40,
+      }}
+    />
+    <View>
+      <Text
+        style={{
+          color: '#fff',
+          alignSelf: 'center',
+          textAlign: 'center',
+          fontSize: 20,
+          fontWeight: 'bold',
+          margin: 10,
+        }}>
+        İstediğin Herkesle {'\n'}Görüntülü Sohbet Et
+      </Text>
+      <Text
+        style={{
+          color: '#888',
+          alignSelf: 'center',
+          textAlign: 'center',
+          fontSize: 16,
+          marginBottom: 10,
+        }}>
+        Instagram'ı olmasa bile birini görüntülü {'\n'}
+        sohbet etmeye davet etmek için bir {'\n'}bağlantı paylaş.
+      </Text>
+      <TouchableOpacity>
+        <Text
+          style={{
+            color: '#006fff',
+            alignSelf: 'center',
+            textAlign: 'center',
+            fontSize: 16,
+          }}>
+          Oda Oluştur
+        </Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+);
 const DmRequests = () => <View style={Styles.scene} />;
 
 const renderScene = SceneMap({
@@ -84,11 +129,11 @@ const getTabBarIcon = props => {
   const {route} = props;
   //console.log('Data', Data);
   if (route.key === 'DirectMessage') {
-    return <Text style={{color: '#fff'}}>Sohbetler</Text>;
+    return <Text style={{color: '#fff', fontSize: 16}}>Sohbetler</Text>;
   } else if (route.key === 'Rooms') {
-    return <Text style={{color: '#fff'}}>Odalar</Text>;
+    return <Text style={{color: '#fff', fontSize: 16}}>Odalar</Text>;
   } else {
-    return <Text style={{color: '#fff'}}>İstek</Text>;
+    return <Text style={{color: '#fff', fontSize: 16}}>İstek</Text>;
   }
 };
 const TabViewProfile = () => {
