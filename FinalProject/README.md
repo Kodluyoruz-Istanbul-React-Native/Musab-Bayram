@@ -1,4 +1,4 @@
-### Kodluyoruz 95. istanbul bootcampının bitirme projesidir...
+### Kodluyoruz 95. istanbul bootcampının bitirme projesidir.
 <br>
 Uygulama ilk açıldığında login sayfası ile karşılaşıyorsunuz.
 <img src = https://github.com/MusabBayram/Kodluyoruz-ReactNative/blob/main/FinalProject/src/readmeImg/login%20sayfas%C4%B1.png width = "250" height = "500">
